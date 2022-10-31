@@ -6,15 +6,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
-@Document(collection = "transactionType")
 @Data
-public class TransactionTypeEntity {
+@Document(collection = "transactionCommission")
+public class TransactionCommissionEntity {
     @Id
-    private String id;
-    private String code;
-    private String name;
-    private String description;
+    private  String id;
+    private  String idTransaction;
+    private Integer amount;
+    private String idCommissionType;
     private Date createAt;
     private Date updateAt;
-    private String status;
+    private  String status;
 }

@@ -2,13 +2,14 @@ package com.microservice.transaction.infrastructure.rest;
 
 import com.microservice.transaction.domain.services.ITransactionTypeService;
 import com.microservice.transaction.infrastructure.IModelMapper;
-import com.microservice.transaction.infrastructure.dto.ResponseDto;
-import com.microservice.transaction.infrastructure.dto.TransactionTypeDto;
+import com.microservice.transaction.domain.dto.ResponseDto;
+import com.microservice.transaction.domain.dto.TransactionTypeDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
 @RestController
+@RequestMapping("transactionType")
 public class TransactionTypeRestController {
     @Autowired
     private ITransactionTypeService transactionTypeService;

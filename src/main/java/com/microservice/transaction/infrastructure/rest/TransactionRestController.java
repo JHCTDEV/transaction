@@ -2,9 +2,8 @@ package com.microservice.transaction.infrastructure.rest;
 
 import com.microservice.transaction.domain.services.ITransactionService;
 import com.microservice.transaction.infrastructure.IModelMapper;
-import com.microservice.transaction.infrastructure.dto.ResponseDto;
-import com.microservice.transaction.infrastructure.dto.TransactionDto;
-import com.microservice.transaction.infrastructure.dto.TransactionTypeDto;
+import com.microservice.transaction.domain.dto.ResponseDto;
+import com.microservice.transaction.domain.dto.TransactionDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;

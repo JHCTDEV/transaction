@@ -1,15 +1,10 @@
-package com.microservice.transaction.domain.entities;
+package com.microservice.transaction.domain.dto;
 
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
-
-@Document(collection = "transaction")
 @Data
-public class TransactionEntity {
-    @Id
+public class TransactionDto {
     private String id;
     private String idCustomerProductSource;
     private String idCustomerProductDestiny;
@@ -17,7 +12,10 @@ public class TransactionEntity {
     private Float amount;
     private Date date;
     private String description;
+    private TransactionTypeDto transactionType;
+    private CustomerProductDto customerProductSource;
     private Date createAt;
     private Date updateAt;
     private String status;
+
 }

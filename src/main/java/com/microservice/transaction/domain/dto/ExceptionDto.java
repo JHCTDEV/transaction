@@ -1,4 +1,4 @@
-package com.microservice.transaction.infrastructure.dto;
+package com.microservice.transaction.domain.dto;
 
 import lombok.Data;
 

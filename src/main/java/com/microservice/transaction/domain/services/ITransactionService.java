@@ -1,10 +1,7 @@
 package com.microservice.transaction.domain.services;
 
-import com.microservice.transaction.domain.entities.TransactionEntity;
-import com.microservice.transaction.infrastructure.dto.ResponseDto;
-import com.microservice.transaction.infrastructure.dto.TransactionDto;
-import com.microservice.transaction.infrastructure.dto.TransactionTypeDto;
-import reactor.core.publisher.Flux;
+import com.microservice.transaction.domain.dto.ResponseDto;
+import com.microservice.transaction.domain.dto.TransactionDto;
 import reactor.core.publisher.Mono;
 
 public interface ITransactionService {
@@ -13,4 +10,5 @@ public interface ITransactionService {
     Mono<ResponseDto> update(TransactionDto transactionDto);
     Mono<Void> delete(String id);
     Mono<ResponseDto> findById(String id);
+    Mono<ResponseDto> updateBalanceCustomerProduct(ResponseDto responseDto);
 }

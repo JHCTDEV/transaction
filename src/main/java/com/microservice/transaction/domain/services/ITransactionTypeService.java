@@ -1,7 +1,7 @@
 package com.microservice.transaction.domain.services;
 
-import com.microservice.transaction.infrastructure.dto.ResponseDto;
-import com.microservice.transaction.infrastructure.dto.TransactionTypeDto;
+import com.microservice.transaction.domain.dto.ResponseDto;
+import com.microservice.transaction.domain.dto.TransactionTypeDto;
 import reactor.core.publisher.Mono;
 
 public interface ITransactionTypeService {
