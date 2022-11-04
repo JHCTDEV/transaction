@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: transaction-service
+  config:
+    import: optional:configserver:http://root:123a@localhost:8099
