@@ -2,4 +2,4 @@ spring:
   application:
     name: transaction-service
   config:
-    import: optional:configserver:http://root:123a@localhost:8099
+    import: optional:configserver:${URI_CONFIG_SERVER}
