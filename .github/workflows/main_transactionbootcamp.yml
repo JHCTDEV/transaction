@@ -15,23 +15,20 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-
+    - uses: actions/setup-java@v1
+      with:
+        java-version: 17
+    - name: Build with Maven
+      run: mvn -DHOST_NAME=localhost -DPORT_SERVICE=8089 -DURI_EUREKA=http://localhost:9093/eureka/ -DURI_MONGODB=mongodb://localhost/transaction -DPORT_MONGODB=27017 -DURI_CONFIG_SERVER=http://root:123a@localhost:8099 clean install
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
-
-    - name: Log in to registry
-      uses: docker/login-action@v1
+    - name: Build and push container image to registry
+      uses: docker/build-push-action@v1
       with:
-        registry: https://index.docker.io/v1/
         username: ${{ secrets.AzureAppService_ContainerUsername_631cd5d32e074f47b13a45dbf8ff9250 }}
         password: ${{ secrets.AzureAppService_ContainerPassword_ce5a9f0e46de46b8be4b2410b17fb11b }}
-
-    - name: Build and push container image to registry
-      uses: docker/build-push-action@v2
-      with:
-        push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_631cd5d32e074f47b13a45dbf8ff9250 }}/jhctdev/transaction-service:${{ github.sha }}
-        file: ./Dockerfile
+        repository: jhctdev/transaction-service
+        tags: ${{ github.sha }}
 
   deploy:
     runs-on: ubuntu-latest
@@ -48,4 +45,4 @@ jobs:
         app-name: 'transactionbootcamp'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_c7d2d823fdc947bea0e27c8d568558c4 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_631cd5d32e074f47b13a45dbf8ff9250 }}/jhctdev/transaction-service:${{ github.sha }}'
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_631cd5d32e074f47b13a45dbf8ff9250 }}/transaction-service:${{ github.sha }}'
